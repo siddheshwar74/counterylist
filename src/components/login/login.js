@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import InstagramLogin from 'react-instagram-login';
 import GoogleLogin from 'react-google-login';
+import {API_BASE_URL} from '../../constants';
+import SocialLogin from '../components_list/socialLogin';
 
 class Login extends Component {
     constructor(props){
@@ -9,6 +11,7 @@ class Login extends Component {
         this.state = {
             value:''
           };
+          console.log(API_BASE_URL)
     }
 
     responseFacebook(response) {
@@ -114,11 +117,7 @@ class Login extends Component {
                   Or Sign In Using
                 </span>
               </div>
-              <div className="flex-c-m">
-              {this.facebookLogin()}
-              {this.instagramLogin()}
-              {this.googleLogin()}
-              </div>
+              <SocialLogin />
               <div className="flex-col-c p-t-15">
                 <span className="txt1 p-b-17">
                   Or Sign Up Using
